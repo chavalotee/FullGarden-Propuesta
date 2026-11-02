@@ -1,0 +1,1885 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelloTec × FullGarden | Propuesta Comercial</title>
+    <meta name="description" content="Propuesta de HelloTec para FullGarden: presencia digital, contenido audiovisual y combo fiestas.">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='Georgia' font-weight='bold'>H</text></svg>">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --bg: #faf7f0;
+            --bg-pure: #ffffff;
+            --bg-deep: #f2ecde;
+            --ink: #14110d;
+            --ink-soft: #4a4033;
+            --muted: #7a7062;
+            --muted-light: #a89e8f;
+            --black: #0a0907;
+            --yellow: #f5b800;
+            --yellow-dark: #a67c00;
+            --border: #e8e1d2;
+            
+            --font-editorial: 'Newsreader', Georgia, serif;
+            --font-serif: 'Instrument Serif', Georgia, serif;
+            --font-grotesk: 'Space Grotesk', sans-serif;
+            --font-sans: 'Inter', system-ui, sans-serif;
+            
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+            --radius-full: 999px;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: var(--bg);
+            color: var(--ink);
+            font-family: var(--font-sans);
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        ::selection { background: var(--yellow); color: var(--black); }
+        a { color: inherit; }
+        button { font-family: inherit; }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        #progress {
+            position: fixed;
+            top: 0; left: 0;
+            height: 2px;
+            background: var(--yellow);
+            width: 0%;
+            z-index: 10000;
+            transition: width 0.1s linear;
+        }
+
+        header {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            padding: 16px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(250, 247, 240, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(20,17,13,0.04);
+            z-index: 1000;
+        }
+        .logo-hellotec {
+            font-family: var(--font-sans);
+            font-weight: 800;
+            font-size: 22px;
+            color: var(--ink);
+            letter-spacing: -0.04em;
+            text-decoration: none;
+        }
+        .header-meta {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            font-size: 12px;
+            color: var(--muted);
+            font-weight: 500;
+        }
+        .header-meta .sep {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--muted-light);
+        }
+        @media (max-width: 700px) {
+            .header-meta { display: none; }
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 0 6%;
+        }
+
+        section {
+            padding: 100px 0;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+        section:last-of-type { border-bottom: none; }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 24px;
+        }
+        .section-label .dot {
+            width: 6px; height: 6px;
+            background: var(--yellow);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--yellow);
+        }
+        .section-number {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 18px;
+            color: var(--yellow-dark);
+            margin-right: 8px;
+        }
+
+        h1 {
+            font-family: var(--font-editorial);
+            font-weight: 400;
+            font-size: clamp(52px, 8vw, 104px);
+            line-height: 0.95;
+            letter-spacing: -0.035em;
+            color: var(--ink);
+            margin-bottom: 32px;
+        }
+        h1 em { font-style: italic; color: var(--yellow-dark); }
+
+        h2 {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: clamp(30px, 4vw, 46px);
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            color: var(--ink);
+            margin-bottom: 24px;
+        }
+        h2 em { font-family: var(--font-serif); font-style: italic; color: var(--yellow-dark); font-weight: 400; }
+
+        h3 {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--ink-soft);
+            margin-bottom: 16px;
+            max-width: 760px;
+        }
+        p strong { color: var(--ink); font-weight: 600; }
+
+        .lead {
+            font-family: var(--font-grotesk);
+            font-weight: 500;
+            font-size: clamp(18px, 2.2vw, 24px);
+            color: var(--ink-soft);
+            letter-spacing: -0.02em;
+            line-height: 1.4;
+        }
+
+        /* HERO */
+        .hero {
+            padding: 160px 0 120px;
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-shapes-bg {
+            position: absolute;
+            top: 0; right: -15%;
+            width: 700px; height: 700px;
+            opacity: 0.06;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .hero-shapes-bg svg { width: 100%; height: 100%; }
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+        }
+        .hero-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 40px;
+        }
+        .hero-eyebrow .client-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--black);
+            color: var(--bg);
+            padding: 8px 16px;
+            border-radius: var(--radius-full);
+            font-size: 11px;
+            letter-spacing: 0.12em;
+        }
+        .hero-eyebrow .client-tag .dot-live {
+            width: 6px; height: 6px;
+            background: var(--yellow);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero h1 {
+            max-width: 1000px;
+            margin-bottom: 40px;
+        }
+        .hero-subtitle {
+            font-size: clamp(18px, 2vw, 22px);
+            color: var(--ink-soft);
+            max-width: 720px;
+            line-height: 1.5;
+            margin-bottom: 56px;
+        }
+        .hero-subtitle strong { color: var(--ink); font-weight: 600; }
+
+        .hero-meta-row {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+        }
+        .hero-meta-item .meta-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+        .hero-meta-item .meta-value {
+            font-family: var(--font-grotesk);
+            font-weight: 600;
+            font-size: 20px;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+        }
+
+        /* PROBLEMA */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            margin-top: 56px;
+        }
+        @media (min-width: 900px) {
+            .problem-grid { grid-template-columns: 1fr 1fr; align-items: start; }
+        }
+
+        .problem-visual {
+            background: var(--bg-pure);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            position: relative;
+        }
+        .problem-visual .pv-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 20px;
+        }
+        .problem-visual .pv-avatar {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--yellow), var(--yellow-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 20px;
+            color: var(--black);
+            font-weight: 700;
+        }
+        .problem-visual .pv-name { font-weight: 700; font-size: 14px; color: var(--ink); }
+        .problem-visual .pv-sub { font-size: 11px; color: var(--muted); }
+
+        .post-mock {
+            background: var(--bg-deep);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+        .post-mock::before {
+            content: 'IMG';
+            position: absolute;
+            top: 8px; right: 8px;
+            background: rgba(239, 68, 68, 0.15);
+            color: #dc2626;
+            font-size: 9px;
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 4px;
+            letter-spacing: 0.1em;
+        }
+        .post-mock .pm-image {
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(45deg, #d4d4d4 25%, #e5e5e5 25%, #e5e5e5 50%, #d4d4d4 50%, #d4d4d4 75%, #e5e5e5 75%);
+            background-size: 20px 20px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .post-mock .pm-image span {
+            background: #dc2626;
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+            letter-spacing: 0.1em;
+        }
+        .post-mock .pm-caption {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+        .post-mock .pm-caption strong { color: var(--ink); }
+
+        .problem-point {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .problem-point:last-child { border-bottom: none; }
+        .problem-point-num {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 28px;
+            color: var(--yellow-dark);
+            line-height: 1;
+            flex-shrink: 0;
+            width: 36px;
+        }
+        .problem-point-content h4 {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 17px;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+            margin-bottom: 6px;
+            line-height: 1.35;
+        }
+        .problem-point-content p {
+            font-size: 15px;
+            line-height: 1.55;
+            color: var(--muted);
+            margin: 0;
+        }
+
+        /* OPORTUNIDAD */
+        .oportunidad-band {
+            background: var(--black);
+            color: var(--bg);
+            border-radius: 24px;
+            padding: 56px 48px;
+            margin-top: 56px;
+            position: relative;
+            overflow: hidden;
+        }
+        .oportunidad-band::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -10%;
+            width: 400px; height: 400px;
+            border: 1px solid rgba(245,184,0,0.15);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .oportunidad-band .ob-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(245,184,0,0.15);
+            color: var(--yellow);
+            padding: 8px 16px;
+            border-radius: var(--radius-full);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+        .oportunidad-band h3 {
+            font-family: var(--font-editorial);
+            font-size: clamp(28px, 3.5vw, 42px);
+            font-weight: 400;
+            color: var(--bg);
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            max-width: 720px;
+        }
+        .oportunidad-band h3 em {
+            font-style: italic;
+            color: var(--yellow);
+        }
+        .oportunidad-band p {
+            color: #a3a3a3;
+            font-size: 17px;
+            max-width: 620px;
+        }
+        .oportunidad-band p strong { color: var(--bg); }
+
+        /* DOS FRENTES - DIFERENCIAL */
+        .dos-frentes-hero {
+            background: var(--bg-pure);
+            border: 1px solid var(--border);
+            border-radius: 32px;
+            padding: 72px 56px;
+            margin-top: 56px;
+            position: relative;
+            overflow: hidden;
+        }
+        .dos-frentes-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 4px;
+            background: linear-gradient(to right, var(--yellow), var(--yellow-dark), transparent);
+        }
+        .dos-frentes-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--yellow);
+            color: var(--black);
+            padding: 8px 18px;
+            border-radius: var(--radius-full);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+        }
+        .dos-frentes-hero h2 {
+            font-family: var(--font-editorial);
+            font-size: clamp(38px, 5vw, 64px);
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            color: var(--ink);
+            margin-bottom: 24px;
+            max-width: 900px;
+        }
+        .dos-frentes-hero h2 em { color: var(--yellow-dark); }
+
+        .frentes-visual {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 48px 0 40px;
+        }
+        @media (min-width: 768px) {
+            .frentes-visual { grid-template-columns: 1fr 1fr; gap: 24px; }
+        }
+        .frente-visual-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            position: relative;
+        }
+        .frente-visual-card .fv-num {
+            position: absolute;
+            top: 24px; right: 24px;
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 40px;
+            color: var(--yellow);
+            opacity: 0.4;
+            line-height: 1;
+        }
+        .frente-visual-card .fv-icon {
+            width: 52px; height: 52px;
+            border-radius: 14px;
+            background: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .frente-visual-card .fv-icon svg {
+            color: var(--yellow);
+            width: 24px;
+            height: 24px;
+        }
+        .frente-visual-card h3 {
+            font-family: var(--font-sans);
+            font-weight: 800;
+            font-size: 22px;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+            margin-bottom: 10px;
+        }
+        .frente-visual-card p {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.65;
+            margin: 0;
+        }
+        .frente-visual-card p strong { color: var(--ink); }
+
+        .diferencial-band {
+            background: var(--black);
+            color: var(--bg);
+            border-radius: 20px;
+            padding: 40px 48px;
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+        .diferencial-band .db-icon {
+            width: 56px; height: 56px;
+            border-radius: 14px;
+            background: rgba(245,184,0,0.15);
+            border: 1px solid rgba(245,184,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .diferencial-band .db-icon svg {
+            color: var(--yellow);
+            width: 26px;
+            height: 26px;
+        }
+        .diferencial-band .db-content { flex: 1; min-width: 280px; }
+        .diferencial-band .db-content h3 {
+            font-family: var(--font-editorial);
+            font-size: 26px;
+            font-weight: 400;
+            color: var(--bg);
+            line-height: 1.2;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+        .diferencial-band .db-content h3 em {
+            font-style: italic;
+            color: var(--yellow);
+        }
+        .diferencial-band .db-content p {
+            color: #a3a3a3;
+            font-size: 15px;
+            margin: 0;
+            line-height: 1.6;
+        }
+        .diferencial-band .db-content p strong { color: var(--bg); }
+
+        /* SOLUCION - 3 FRENTES */
+        .frentes-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 56px;
+        }
+        @media (min-width: 900px) {
+            .frentes-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        .frente-card {
+            background: var(--bg-pure);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 36px 32px;
+            position: relative;
+            transition: all 0.4s var(--ease-out);
+        }
+        .frente-card:hover {
+            border-color: var(--yellow);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -20px rgba(20,17,13,0.15);
+        }
+        .frente-num {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 14px;
+            color: var(--yellow-dark);
+            margin-bottom: 16px;
+            letter-spacing: 0.1em;
+        }
+        .frente-icon {
+            width: 52px; height: 52px;
+            border-radius: 14px;
+            background: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+        .frente-icon svg { color: var(--yellow); width: 24px; height: 24px; }
+        .frente-card h4 {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            line-height: 1.25;
+        }
+        .frente-card p {
+            font-size: 15px;
+            line-height: 1.65;
+            color: var(--muted);
+            margin: 0;
+        }
+        .frente-card p strong { color: var(--ink); }
+
+        /* MAQUINA DE CONTENIDO */
+        .semana-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 48px 0 24px;
+        }
+        @media (min-width: 768px) {
+            .semana-grid { grid-template-columns: repeat(7, 1fr); gap: 8px; }
+        }
+        .dia-cell {
+            background: var(--bg-pure);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 12px;
+            text-align: center;
+            transition: all 0.3s var(--ease-out);
+        }
+        .dia-cell.highlight {
+            background: var(--black);
+            border-color: var(--black);
+            color: var(--bg);
+        }
+        .dia-cell.promo {
+            background: var(--yellow);
+            border-color: var(--yellow);
+            color: var(--black);
+        }
+        .dia-cell .dia {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .dia-cell .tipo {
+            font-size: 11px;
+            line-height: 1.3;
+            font-weight: 500;
+            opacity: 0.85;
+        }
+        .dia-cell.highlight .tipo,
+        .dia-cell.highlight .dia { color: var(--bg); }
+        .dia-cell.promo .tipo,
+        .dia-cell.promo .dia { color: var(--black); font-weight: 700; }
+
+        .materiales-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 24px;
+        }
+        .material-box {
+            background: var(--bg-pure);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .material-box .cant {
+            font-family: var(--font-grotesk);
+            font-weight: 700;
+            font-size: 32px;
+            color: var(--ink);
+            letter-spacing: -0.03em;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+        .material-box .label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--muted);
+            line-height: 1.4;
+        }
+
+        /* DRON */
+        .dron-band {
+            background: var(--black);
+            color: var(--bg);
+            border-radius: 24px;
+            padding: 56px 48px;
+            margin-top: 56px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        @media (min-width: 900px) {
+            .dron-band { grid-template-columns: 1.1fr 1fr; gap: 56px; }
+        }
+        .dron-band .db-icon {
+            width: 56px; height: 56px;
+            border-radius: 14px;
+            background: rgba(245,184,0,0.15);
+            border: 1px solid rgba(245,184,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+        .dron-band .db-icon svg { color: var(--yellow); width: 26px; height: 26px; }
+        .dron-band h3 {
+            font-family: var(--font-editorial);
+            font-size: clamp(28px, 3.5vw, 44px);
+            font-weight: 400;
+            color: var(--bg);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+        }
+        .dron-band h3 em {
+            font-style: italic;
+            color: var(--yellow);
+        }
+        .dron-band p {
+            color: #a3a3a3;
+            font-size: 16px;
+            line-height: 1.65;
+            margin-bottom: 24px;
+        }
+        .dron-band p strong { color: var(--bg); }
+
+        .dron-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .dron-feature {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 18px;
+        }
+        .dron-feature svg {
+            color: var(--yellow);
+            width: 20px;
+            height: 20px;
+            margin-bottom: 10px;
+        }
+        .dron-feature h5 {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--bg);
+            letter-spacing: -0.01em;
+            margin-bottom: 4px;
+        }
+        .dron-feature p {
+            font-size: 11px;
+            color: #888;
+            margin: 0;
+            line-height: 1.45;
+        }
+
+        /* PLANES */
+        .planes-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 56px;
+        }
+        @media (min-width: 900px) {
+            .planes-grid { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
+        }
+        .plan-card {
+            background: var(--bg-pure);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 40px 32px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.4s var(--ease-out);
+        }
+        .plan-card.featured {
+            background: var(--black);
+            border-color: var(--black);
+            color: var(--bg);
+            transform: scale(1.02);
+            box-shadow: 0 30px 60px -20px rgba(20,17,13,0.25);
+        }
+        @media (min-width: 900px) {
+            .plan-card.featured { transform: scale(1.05); }
+        }
+        .plan-card .plan-shape {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 24px;
+        }
+        .plan-card .plan-shape svg {
+            width: 100%;
+            height: 100%;
+        }
+        .plan-card.featured .plan-shape svg circle {
+            stroke: var(--yellow);
+        }
+        .plan-badge {
+            position: absolute;
+            top: 20px; right: 20px;
+            background: var(--yellow);
+            color: var(--black);
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            border-radius: var(--radius-full);
+        }
+        .plan-name {
+            font-family: var(--font-sans);
+            font-weight: 800;
+            font-size: 20px;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+        .plan-card.featured .plan-name { color: var(--bg); }
+        .plan-tagline {
+            font-family: var(--font-grotesk);
+            font-weight: 500;
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 24px;
+            letter-spacing: -0.01em;
+        }
+        .plan-card.featured .plan-tagline { color: var(--muted-light); }
+
+        .plan-price {
+            padding: 24px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 24px;
+        }
+        .plan-card.featured .plan-price {
+            border-color: #333;
+        }
+        .plan-price .currency {
+            font-family: var(--font-grotesk);
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--muted);
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+        }
+        .plan-card.featured .plan-price .currency { color: var(--muted-light); }
+        .plan-price .amount {
+            font-family: var(--font-grotesk);
+            font-weight: 700;
+            font-size: 36px;
+            color: var(--ink);
+            letter-spacing: -0.03em;
+            line-height: 1;
+        }
+        .plan-card.featured .plan-price .amount { color: var(--yellow); }
+
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .plan-features li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            font-size: 13px;
+            color: var(--ink-soft);
+            line-height: 1.5;
+            padding: 6px 0;
+        }
+        .plan-card.featured .plan-features li { color: #a3a3a3; }
+        .plan-features li svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+            margin-top: 3px;
+            color: var(--yellow-dark);
+        }
+        .plan-card.featured .plan-features li svg { color: var(--yellow); }
+        .plan-features li strong { color: var(--ink); font-weight: 600; }
+        .plan-card.featured .plan-features li strong { color: var(--bg); }
+        .plan-features li.off {
+            opacity: 0.4;
+        }
+        .plan-features li.off svg { color: var(--muted); }
+
+        /* PRECIO ÚNICO */
+        .precio-unico {
+            background: var(--black);
+            color: var(--bg);
+            border-radius: 32px;
+            padding: 72px 56px;
+            margin-top: 56px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .precio-unico::before {
+            content: '';
+            position: absolute;
+            top: -30%; left: 50%;
+            transform: translateX(-50%);
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(245,184,0,0.15), transparent 70%);
+            pointer-events: none;
+        }
+        .precio-unico-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(245,184,0,0.15);
+            color: var(--yellow);
+            padding: 8px 18px;
+            border-radius: var(--radius-full);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 2;
+        }
+        .precio-unico h2 {
+            font-family: var(--font-editorial);
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 400;
+            line-height: 1.05;
+            color: var(--bg);
+            letter-spacing: -0.02em;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 2;
+        }
+        .precio-unico h2 em { color: var(--yellow); }
+
+        .precio-grande {
+            font-family: var(--font-grotesk);
+            font-weight: 700;
+            font-size: clamp(72px, 12vw, 140px);
+            color: var(--yellow);
+            letter-spacing: -0.05em;
+            line-height: 1;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 2;
+        }
+        .precio-unico .precio-nota {
+            font-family: var(--font-grotesk);
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--muted-light);
+            letter-spacing: 0.05em;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        .precio-unico p.justif {
+            color: #a3a3a3;
+            font-size: 17px;
+            line-height: 1.7;
+            max-width: 640px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .precio-unico p.justif strong { color: var(--bg); font-weight: 600; }
+
+        /* TIMELINE */
+        .timeline {
+            margin-top: 56px;
+            position: relative;
+        }
+        .timeline-line {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--yellow), var(--border) 80%, transparent);
+        }
+        @media (min-width: 768px) {
+            .timeline-line { left: 50%; transform: translateX(-1px); }
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            padding-bottom: 56px;
+        }
+        @media (min-width: 768px) {
+            .timeline-item {
+                padding-left: 0;
+                display: grid;
+                grid-template-columns: 1fr auto 1fr;
+                gap: 40px;
+                align-items: start;
+                padding-bottom: 72px;
+            }
+            .timeline-item:nth-child(odd) .tl-content { order: 1; text-align: right; }
+            .timeline-item:nth-child(odd) .tl-empty { order: 3; }
+            .timeline-item:nth-child(even) .tl-content { order: 3; text-align: left; }
+            .timeline-item:nth-child(even) .tl-empty { order: 1; }
+            .timeline-item .tl-content { padding-top: 4px; }
+        }
+        .timeline-item:last-child { padding-bottom: 0; }
+
+        .tl-dot {
+            position: absolute;
+            left: 12px;
+            top: 4px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--yellow);
+            border: 3px solid var(--bg);
+            box-shadow: 0 0 0 1px var(--yellow);
+            z-index: 2;
+        }
+        @media (min-width: 768px) {
+            .tl-dot {
+                position: relative;
+                left: auto;
+                top: 4px;
+                order: 2;
+                justify-self: center;
+            }
+        }
+        .tl-date {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 15px;
+            color: var(--yellow-dark);
+            margin-bottom: 6px;
+            letter-spacing: 0.02em;
+        }
+        .tl-title {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            line-height: 1.25;
+        }
+        .tl-desc {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.55;
+            max-width: 360px;
+        }
+        @media (min-width: 768px) {
+            .timeline-item:nth-child(odd) .tl-desc { margin-left: auto; }
+        }
+
+        /* CTA FINAL */
+        .cta-final {
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+        }
+        .cta-final h2 {
+            font-family: var(--font-editorial);
+            font-style: italic;
+            font-weight: 400;
+            font-size: clamp(40px, 6vw, 72px);
+            color: var(--ink);
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+            margin-bottom: 32px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-final p {
+            font-size: 19px;
+            color: var(--muted);
+            margin: 0 auto 48px;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: var(--black);
+            color: var(--bg);
+            padding: 20px 40px;
+            border-radius: var(--radius-full);
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s var(--ease-out);
+            box-shadow: 0 10px 30px -10px rgba(10,9,7,0.3);
+        }
+        .btn-primary:hover {
+            background: #333;
+            transform: translateY(-3px);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--ink);
+            padding: 20px 40px;
+            border-radius: var(--radius-full);
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid var(--ink);
+            transition: all 0.3s var(--ease-out);
+        }
+        .btn-secondary:hover {
+            background: var(--ink);
+            color: var(--bg);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--black);
+            color: #888;
+            padding: 60px 6% 40px;
+        }
+        .footer-inner {
+            max-width: 1150px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        @media (min-width: 768px) {
+            .footer-inner {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-end;
+            }
+        }
+        .footer-logo {
+            font-family: var(--font-sans);
+            font-weight: 800;
+            font-size: 26px;
+            color: var(--bg);
+            letter-spacing: -0.04em;
+            margin-bottom: 8px;
+        }
+        .footer-tagline {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 15px;
+            color: var(--muted-light);
+        }
+        .footer-meta {
+            font-size: 12px;
+            color: #666;
+            text-align: left;
+            line-height: 1.7;
+        }
+        @media (min-width: 768px) {
+            .footer-meta { text-align: right; }
+        }
+        .footer-meta a {
+            color: var(--yellow);
+            text-decoration: none;
+        }
+        .footer-meta a:hover { text-decoration: underline; }
+
+    </style>
+</head>
+<body>
+
+    <div id="progress"></div>
+
+    <header>
+        <a href="#" class="logo-hellotec">HelloTec</a>
+        <div class="header-meta">
+            <span>Propuesta comercial</span>
+            <span class="sep"></span>
+            <span>FullGarden</span>
+            <span class="sep"></span>
+            <span>Noviembre 2026</span>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-shapes-bg">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="100" cy="60" r="50" fill="none" stroke="#f5b800" stroke-width="0.5"/>
+                    <circle cx="60" cy="120" r="50" fill="none" stroke="#f5b800" stroke-width="0.5"/>
+                    <circle cx="140" cy="120" r="50" fill="none" stroke="#f5b800" stroke-width="0.5"/>
+                </svg>
+            </div>
+            <div class="hero-inner">
+                <div class="hero-eyebrow">
+                    <span class="client-tag">
+                        <span class="dot-live"></span>
+                        Propuesta · FullGarden
+                    </span>
+                    <span>HelloTec × FullGarden</span>
+                </div>
+                <h1>
+                    El potencial de<br>
+                    FullGarden,<br>
+                    <em>al máximo nivel.</em>
+                </h1>
+                <p class="hero-subtitle">
+                    Una propuesta de <strong>HelloTec</strong> para transformar el Instagram de FullGarden, mostrar la calidad real del trabajo con un sitio web a la altura, y usar la temporada navideña para llenar la agenda de clientes antes de que se termine el año.
+                </p>
+
+                <div class="hero-meta-row">
+                    <div class="hero-meta-item">
+                        <div class="meta-label">Propuesta</div>
+                        <div class="meta-value">Noviembre 2026</div>
+                    </div>
+                    <div class="hero-meta-item">
+                        <div class="meta-label">Cliente</div>
+                        <div class="meta-value">FullGarden</div>
+                    </div>
+                    <div class="hero-meta-item">
+                        <div class="meta-label">Elaborado por</div>
+                        <div class="meta-value">Jorge Alejandro · CEO</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 01 · PROBLEMA -->
+        <section>
+            <div class="section-label">
+                <span class="dot"></span>
+                <span class="section-number">01</span>
+                El punto de partida
+            </div>
+            <h2>
+                FullGarden ya tiene el mejor servicio.<br>
+                Ahora necesita la <em>presencia</em> que lo demuestre.
+            </h2>
+
+            <div class="problem-grid">
+                <div>
+                    <p class="lead">
+                        Hoy el Instagram está lleno de fotos sueltas y flyers genéricos que no reflejan la magnitud del trabajo que hacen.
+                    </p>
+                    <p>
+                        Con la temporada de fiestas acercándose, es el momento exacto para profesionalizar la marca, mostrar resultados reales y destacar por encima del ruido.
+                    </p>
+                    <p>
+                        <strong>La idea es simple:</strong> que cada persona que entre al perfil o a la web vea la calidad del trabajo, encuentre las respuestas que busca y pueda consultar sin que ustedes tengan que estar respondiendo mensajes todo el día.
+                    </p>
+                </div>
+                <div class="problem-visual">
+                    <div class="pv-header">
+                        <div class="pv-avatar">FG</div>
+                        <div>
+                            <div class="pv-name">FullGarden</div>
+                            <div class="pv-sub">@fullgarden · hace 2 días</div>
+                        </div>
+                    </div>
+                    <div class="post-mock">
+                        <div class="pm-image"><span>FLYER IA · SIN FOTO REAL</span></div>
+                        <div class="pm-caption"><strong>Promo especial.</strong> Consultas por DM 📩</div>
+                    </div>
+                    <div class="post-mock">
+                        <div class="pm-image"><span>IMAGEN GENÉRICA</span></div>
+                        <div class="pm-caption">Flyer sin identidad de marca. No muestra el trabajo.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 56px">
+                <div class="problem-point">
+                    <div class="problem-point-num">01</div>
+                    <div class="problem-point-content">
+                        <h4>Instagram con flyers de IA</h4>
+                        <p>Se ve amateur y no refleja la calidad del servicio. El cliente no puede ver el trabajo real.</p>
+                    </div>
+                </div>
+                <div class="problem-point">
+                    <div class="problem-point-num">02</div>
+                    <div class="problem-point-content">
+                        <h4>Sin sitio web propio</h4>
+                        <p>No hay un lugar centralizado con servicios, precios, cobertura o portfolio. Todo depende de Instagram.</p>
+                    </div>
+                </div>
+                <div class="problem-point">
+                    <div class="problem-point-num">03</div>
+                    <div class="problem-point-content">
+                        <h4>Mensajes sin responder</h4>
+                        <p>Los interesados escriben por DM y se pierden entre notificaciones. No hay un sistema que reciba, califique y avise.</p>
+                    </div>
+                </div>
+                <div class="problem-point">
+                    <div class="problem-point-num">04</div>
+                    <div class="problem-point-content">
+                        <h4>Sin estrategia de contenido</h4>
+                        <p>Publican cuando pueden, sin calendario, sin formatos definidos. La marca desaparece del feed.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02 · OPORTUNIDAD -->
+        <section>
+            <div class="section-label">
+                <span class="dot"></span>
+                <span class="section-number">02</span>
+                La oportunidad
+            </div>
+            <h2>
+                Se viene la temporada<br>
+                <em>más importante del año.</em>
+            </h2>
+
+            <div class="oportunidad-band">
+                <div class="ob-eyebrow">
+                    <i data-lucide="gift" style="width: 14px; height: 14px;"></i>
+                    Navidad 2026
+                </div>
+                <h3>
+                    Fiestas, jardines, piscinas.<br>
+                    <em>Todo el mundo quiere su casa impecable.</em>
+                </h3>
+                <p>
+                    Entre noviembre y diciembre, la demanda de servicios de jardinería se dispara. Quien esté preparado con la marca profesional, el contenido correcto y un sistema de contacto aceitado, <strong>factura el doble que el resto</strong>.
+                </p>
+                <p>
+                    Si esperamos a enero, se pasa. Si arrancamos ahora, FullGarden llega a la temporada con marca, web, contenido y todo el sistema funcionando.
+                </p>
+            </div>
+        </section>
+
+        <!-- 03 · DOS FRENTES (DIFERENCIAL) -->
+        <section>
+            <div class="section-label">
+                <span class="dot"></span>
+                <span class="section-number">03</span>
+                El diferencial HelloTec
+            </div>
+
+            <div class="dos-frentes-hero">
+                <div class="dos-frentes-eyebrow">
+                    <i data-lucide="zap" style="width: 14px; height: 14px;"></i>
+                    Lo que ninguna otra agencia ofrece
+                </div>
+                <h2>
+                    Dos frentes.<br>
+                    <em>Una sola agencia.</em>
+                </h2>
+                <p class="lead" style="max-width: 720px; margin-bottom: 0;">
+                    La mayoría de las agencias hacen una cosa o la otra. O te arman la web (lo informático) o te graban videos (lo audiovisual). <strong>HelloTec hace las dos cosas</strong>, con el mismo nivel de calidad, y a un precio que ninguna otra puede igualar.
+                </p>
+
+                <div class="frentes-visual">
+                    <div class="frente-visual-card">
+                        <div class="fv-num">01</div>
+                        <div class="fv-icon">
+                            <i data-lucide="code-2"></i>
+                        </div>
+                        <h3>Frente informático</h3>
+                        <p>Web, dominio propio, hosting, sistema de contacto, automatizaciones. Todo lo técnico que hace que la marca funcione 24/7. <strong>El motor digital.</strong></p>
+                    </div>
+                    <div class="frente-visual-card">
+                        <div class="fv-num">02</div>
+                        <div class="fv-icon">
+                            <i data-lucide="video"></i>
+                        </div>
+                        <h3>Frente audiovisual</h3>
+                        <p>Grabación, edición, contenido mensual, dron, promos de temporada. Todo lo visual que hace que la marca se vea como lo que es. <strong>El motor de atracción.</strong></p>
+                    </div>
+                </div>
+
+                <div class="diferencial-band">
+                    <div class="db-icon">
+                        <i data-lucide="sparkles"></i>
+                    </div>
+                    <div class="db-content">
+                        <h3>Y todo por <em>un precio único.</em></h3>
+                        <p>No hay otra agencia en el mercado que entregue <strong>los dos frentes juntos</strong>, con esta calidad, a este precio. Los que hacen web cobran por separado el contenido. Los que hacen contenido no saben armar una web. <strong>HelloTec es la excepción.</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04 · SOLUCIÓN -->
+        <section>
+            <div class="section-label">
+                <span class="dot"></span>
+                <span class="section-number">04</span>
+                Cómo lo resolvemos
+            </div>
+            <h2>
+                Tres pilares.<br>
+                Una sola <em>estrategia.</em>
+            </h2>
+            <p class="lead">
+                No es "vamos a hacer videos". Es un sistema completo donde cada pieza trabaja junto a las demás.
+            </p>
+
+            <div class="frentes-grid">
+                <div class="frente-card">
+                    <div class="frente-num">01 / WEB</div>
+                    <div class="frente-icon">
+                        <i data-lucide="globe"></i>
+                    </div>
+                    <h4>Web que vende</h4>
+                    <p>Un sitio propio con toda la información: <strong>servicios, cobertura y contacto</strong>. Activo 24/7 para captar clientes mientras FullGarden trabaja en el jardín.</p>
+                </div>
+                <div class="frente-card">
+                    <div class="frente-num">02 / CONTENIDO</div>
+                    <div class="frente-icon">
+                        <i data-lucide="video"></i>
+                    </div>
+                    <h4>Contenido real</h4>
+                    <p>Reemplazamos los flyers de IA por <strong>videos reales del trabajo</strong>. Tres videos semanales (1 potente + 2 normales) y un promo rápido para historias.</p>
+                </div>
+                <div class="frente-card">
+                    <div class="frente-num">03 / NAVIDAD</div>
+                    <div class="frente-icon">
+                        <i data-lucide="gift"></i>
+                    </div>
+                    <h4>Navidad para facturar</h4>
+                    <p>Promos de temporada para <strong>dejar impecable cada jardín y piscina</strong>. Desmontaje incluido para que no se compliquen con el retiro después de las fiestas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05 · MAQUINA DE CONTENIDO -->
+        <section>
+            <div class="section-label">
+                <span class="dot"></span>
+                <span class="section-number">05</span>
+                La máquina de contenido
+            </div>
+            <h2>
+                La semana ideal<br>
+                de <em>FullGarden.</em>
+            </h2>
+            <p class="lead">
+                No son "12 videos al mes". Son <strong>4 materiales por semana</strong>, todos los meses, para que la marca esté en el feed sin pausa y con calidad real.
+            </p>
+
+            <div class="semana-grid">
+                <div class="dia-cell highlight">
+                    <div class="dia">LUN</div>
+                    <div class="tipo">Video potente</div>
+                </div>
+                <div class="dia-cell">
+                    <div class="dia">MAR</div>
+                    <div class="tipo">Video normal</div>
+                </div>
+                <div class="dia-cell">
+                    <div class="dia">MIÉ</div>
+                    <div class="tipo">Video normal</div>
+                </div>
+                <div class="dia-cell promo">
+                    <div class="dia">JUE</div>
+                    <div class="tipo">Promo rápido</div>
+                </div>
+                <div class="dia-cell">
+                    <div class="dia">VIE</div>
+                    <div class="tipo">Dron / aéreas</div>
+                </div>
+                <div class="dia-cell">
+                    <div class="dia">SÁB</div>
+                    <div class="tipo">Historias</div>
+                </div>
+                <div class="dia-cell">
+                    <div class="dia">DOM</div>
+                    <div class="tipo">Descanso</div>
+                </div>
+            </div>
+
+            <div class="materiales-grid">
+                <div class="material-box">
+                    <div class="cant">1</div>
+                    <div class="label">Video potente<br>(el que se comparte)</div>
+                </div>
+                <div class="material-box">
+                    <div class="cant">2</div>
+                    <div class="label">Videos normales<br>(contenido del día a día)</div>
+                </div>
+                <div class="material-box">
+                    <div class="cant">1</div>
+                    <div class="label">Promo rápido<br>(15–25 seg, para historias)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06 · DRON -->
+        <section>
+            <div class="section-label">
+                <span class="dot"></span>
+                <span class="section-number">06</span>
+                El diferencial audiovisual
+            </div>
+            <h2>
+                Mostrá los resultados<br>
+                <em>desde el aire.</em>
+            </h2>
+
+            <div class="dron-band">
+                <div>
+                    <div class="db-icon">
+                        <i data-lucide="send"></i>
+                    </div>
+                    <h3>El dron no es un extra.<br><em>Es lo que hace la diferencia.</em></h3>
+                    <p>
+                        Tomas aéreas de jardines terminados, <strong>antes/después desde arriba</strong>, la magnitud real de cada proyecto. Ese tipo de imagen no se consigue con un celular ni con IA, y es la que frena el scroll.
+                    </p>
+                    <p>
+                        Cuando el cliente ve su jardín desde el aire, entiende por qué pagó lo que pagó. Y cuando lo ve en el feed de FullGarden, quiere lo mismo para su casa.
+                    </p>
+                </div>
+                <div class="dron-features">
+                    <div class="dron-feature">
+                        <i data-lucide="mountain-sun"></i>
+                        <h5>Perspectiva</h5>
+                        <p>Lo que no se ve desde abajo</p>
+                    </div>
+                    <div class="dron-feature">
+                        <i data-lucide="star"></i>
+                        <h5>Calidad premium</h5>
+                        <p>Justifica el precio</p>
+                    </div>
+                    <div class="dron-feature">
+                        <i data-lucide="share-2"></i>
+                        <h5>Más alcance</h5>
+                        <p>Se comparte solo</p>
+                    </div>
+                    <div class="dron-feature">
+                        <i data-lucide="clock"></i>
+                        <h5>Ahorro</h5>
+                        <p>Nosotros volamos, ustedes venden</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 07 · PLANES -->
+        <section>
+            <div class="section-label">
+                <span class="dot"></span>
+                <span class="section-number">07</span>
+                Las opciones
+            </div>
+            <h2>
+                Elegí el nivel de <em>impacto.</em>
+            </h2>
+            <p class="lead">
+                Tres niveles de inversión. El precio es único por todo lo que incluye. Sin mensualidades, sin sorpresas.
+            </p>
+
+            <div class="planes-grid">
+
+                <div class="plan-card">
+                    <svg class="plan-shape" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="30" r="22" fill="none" stroke="#a67c00" stroke-width="2"/>
+                    </svg>
+                    <div class="plan-name">Básico</div>
+                    <div class="plan-tagline">El mínimo viable para arrancar.</div>
+                    <div class="plan-price">
+                        <div class="currency">Inversión única</div>
+                        <div class="amount">₲ 3.500.000</div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i data-lucide="check"></i><span>Sitio web sin decoración navideña</span></li>
+                        <li><i data-lucide="check"></i><span>Sin dominio propio</span></li>
+                        <li><i data-lucide="check"></i><span><strong>2 videos al mes</strong></span></li>
+                        <li class="off"><i data-lucide="x"></i><span>Sin promos ni material extra</span></li>
+                        <li class="off"><i data-lucide="x"></i><span>Sin dron</span></li>
+                        <li class="off"><i data-lucide="x"></i><span>Sin desmontaje</span></li>
+                    </ul>
+                </div>
+
+                <div class="plan-card featured">
+                    <div class="plan-badge">Recomendado</div>
+                    <svg class="plan-shape" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="22" cy="30" r="18" fill="none" stroke="#a67c00" stroke-width="2"/>
+                        <circle cx="38" cy="30" r="18" fill="none" stroke="#a67c00" stroke-width="2"/>
+                    </svg>
+                    <div class="plan-name">Combo Fiestas</div>
+                    <div class="plan-tagline">Todo lo que FullGarden necesita para cerrar el año vendiendo.</div>
+                    <div class="plan-price">
+                        <div class="currency">Inversión única</div>
+                        <div class="amount">₲ 6.000.000</div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i data-lucide="check"></i><span><strong>Web completa</strong> con estilización navideña</span></li>
+                        <li><i data-lucide="check"></i><span><strong>Dominio propio</strong> incluido</span></li>
+                        <li><i data-lucide="check"></i><span><strong>Desmontaje post-fiestas</strong></span></li>
+                        <li><i data-lucide="check"></i><span><strong>12 videos al mes</strong> (3/sem: 1 potente + 2 normales)</span></li>
+                        <li><i data-lucide="check"></i><span><strong>4to material semanal:</strong> promo rápido 15–25 seg</span></li>
+                        <li><i data-lucide="check"></i><span><strong>16 piezas/mes</strong> para no desaparecer del feed</span></li>
+                        <li><i data-lucide="check"></i><span><strong>Dron incluido</strong> (tomas aéreas + antes/después)</span></li>
+                        <li><i data-lucide="check"></i><span><strong>Promos de temporada</strong> que sugiera el equipo</span></li>
+                        <li><i data-lucide="check"></i><span>Material audiovisual para el sitio</span></li>
+                    </ul>
+                </div>
+
+                <div class="plan-card">
+                    <svg class="plan-shape" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="18" r="12" fill="none" stroke="#a67c00" stroke-width="2"/>
+                        <circle cx="18" cy="38" r="12" fill="none" stroke="#a67c00" stroke-width="2"/>
+                        <circle cx="42" cy="38" r="12" fill="none" stroke="#a67c00" stroke-width="2"/>
+                    </svg>
+                    <div class="plan-name">Premium</div>
+                    <div class="plan-tagline">Todo lo del Combo Fiestas + extras de escala.</div>
+                    <div class="plan-price">
+                        <div class="currency">Inversión única</div>
+                        <div class="amount">₲ 15.000.000</div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i data-lucide="check"></i><span><strong>Todo lo del Combo Fiestas</strong></span></li>
+                        <li><i data-lucide="check"></i><span><strong>20 videos al mes</strong></span></li>
+                        <li><i data-lucide="check"></i><span>Pautaje + gestión de redes sociales</span></li>
+                        <li><i data-lucide="check"></i><span>Cobertura de eventos</span></li>
+                        <li><i data-lucide="check"></i><span>Sesión fotográfica extra</span></li>
+                        <li><i data-lucide="check"></i><span>Automatización de WhatsApp</span></li>
+                        <li><i data-lucide="check"></i><span>Soporte prioritario</span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 08 · PRECIO ÚNICO -->
+        <section>
+            <div class="section-label">
+                <span class="dot"></span>
+                <span class="section-number">08</span>
+                La sugerencia
+            </div>
+            <h2>
+                ¿Por qué el <em>Combo Fiestas?</em>
+            </h2>
+            <p class="lead">
+                Es el punto justo entre inversión y resultado. La combinación que mejor rinde para FullGarden en este momento.
+            </p>
+
+            <div class="precio-unico">
+                <div class="precio-unico-eyebrow">
+                    <i data-lucide="sparkles" style="width: 14px; height: 14px;"></i>
+                    Inversión única
+                </div>
+                <h2>
+                    Un solo pago.<br>
+                    <em>Todo lo que necesitan.</em>
+                </h2>
+                <div class="precio-grande">₲ 6.000.000</div>
+                <div class="precio-nota">Precio único · Sin mensualidades · Sin sorpresas</div>
+                <p class="justif">
+                    Un sitio con decoración navideña y dominio propio, 16 piezas de contenido al mes (3 videos semanales + 1 promo rápido), dron incluido para mostrar los resultados desde el aire, y el desmontaje post-fiestas. <strong>Todo pensado para que la temporada los encuentre vendiendo, no improvisando.</strong>
+                </p>
+            </div>
+        </section>
+
+        <!-- 09 · PROCESO / CRONOGRAMA -->
+        <section>
+            <div class="section-label">
+                <span class="dot"></span>
+                <span class="section-number">09</span>
+                Próximos pasos
+            </div>
+            <h2>
+                De la reunión al rodaje<br>
+                <em>en una semana.</em>
+            </h2>
+            <p class="lead">
+                El proceso está diseñado para que no pierdan tiempo. Hoy nos presentamos, el sábado ya estamos grabando.
+            </p>
+
+            <div class="timeline">
+                <div class="timeline-line"></div>
+
+                <div class="timeline-item">
+                    <div class="tl-content">
+                        <div class="tl-date">Hoy · Lunes 2 de noviembre</div>
+                        <div class="tl-title">Presentación</div>
+                        <div class="tl-desc">Les presento esta propuesta, charlamos sobre el negocio, resolvemos dudas y alineamos objetivos.</div>
+                    </div>
+                    <div class="tl-dot"></div>
+                    <div class="tl-empty"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="tl-content">
+                        <div class="tl-date">Martes 3 de noviembre</div>
+                        <div class="tl-title">Meet intensivo</div>
+                        <div class="tl-desc">Reunión profunda para entender el negocio a fondo: dónde ganan, dónde pierden, qué necesitan y qué no. De acá sale el acta.</div>
+                    </div>
+                    <div class="tl-dot"></div>
+                    <div class="tl-empty"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="tl-content">
+                        <div class="tl-date">Miércoles 4 de noviembre</div>
+                        <div class="tl-title">Cotización + Hoja de ruta</div>
+                        <div class="tl-desc">Les envío la cotización formal con el detalle de cada capa y precio, junto con la hoja de ruta del proyecto: qué pasa cada semana.</div>
+                    </div>
+                    <div class="tl-dot"></div>
+                    <div class="tl-empty"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="tl-content">
+                        <div class="tl-date">Jueves 5 de noviembre</div>
+                        <div class="tl-title">Contrato + Bienvenida</div>
+                        <div class="tl-desc">Firma del contrato y arranque oficial. Les presento al PM asignado (soy yo), les paso el checklist de accesos.</div>
+                    </div>
+                    <div class="tl-dot"></div>
+                    <div class="tl-empty"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="tl-content">
+                        <div class="tl-date">Viernes 6 de noviembre</div>
+                        <div class="tl-title">Elaboración del plan de marketing</div>
+                        <div class="tl-desc">Armamos el calendario de contenido del primer mes: qué se graba, cuándo se publica, qué promos van. Todo definido antes de agarrar la cámara.</div>
+                    </div>
+                    <div class="tl-dot"></div>
+                    <div class="tl-empty"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="tl-content">
+                        <div class="tl-date">Sábado 7 de noviembre</div>
+                        <div class="tl-title">Aceptación + Primera grabación</div>
+                        <div class="tl-desc">Validación del plan y primera jornada de grabación. A partir de acá, el sistema está funcionando.</div>
+                    </div>
+                    <div class="tl-dot"></div>
+                    <div class="tl-empty"></div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section class="cta-final">
+            <h2>
+                ¿Empezamos con<br>
+                un "hola"?
+            </h2>
+            <p>
+                Si les convence la propuesta, arrancamos esta semana. Si quieren ajustar algo, lo charlamos. El objetivo es que FullGarden llegue a la temporada de fiestas con todo funcionando.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/595983646451?text=Hola%20HelloTec.%20Vi%20la%20propuesta%20para%20FullGarden%20y%20quiero%20avanzar." target="_blank" rel="noopener" class="btn-primary">
+                    <i data-lucide="message-circle" style="width: 20px; height: 20px;"></i>
+                    Hablemos por WhatsApp
+                </a>
+                <a href="#top" class="btn-secondary">
+                    <i data-lucide="arrow-up" style="width: 20px; height: 20px;"></i>
+                    Volver al inicio
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div>
+                <div class="footer-logo">HelloTec</div>
+                <div class="footer-tagline">Dile Hola a la Tecnología que hará crecer tu negocio.</div>
+            </div>
+            <div class="footer-meta">
+                Propuesta para FullGarden · Noviembre 2026<br>
+                Elaborada por Jorge Alejandro · CEO<br>
+                <a href="https://wa.me/595983646451" target="_blank">0983 646451</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const progress = document.getElementById('progress');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            progress.style.width = (scrollTop / docHeight * 100) + '%';
+        }, { passive: true });
+
+        document.querySelectorAll('a[href="#top"], a[href="#"]').forEach(a => {
+            a.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
